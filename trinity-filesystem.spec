@@ -6,6 +6,8 @@
 %if "%{?tde_version}" == ""
 %define tde_version 14.1.5
 %endif
+%define pkg_rel 2
+
 %define tde_prefix /opt/trinity
 %define tde_bindir %{tde_prefix}/bin
 %define tde_confdir %{_sysconfdir}/trinity
@@ -22,16 +24,12 @@
 
 Name:		trinity-filesystem
 Version:	%{tde_version}
-Release:	1%{?dist}
+Release:	%{pkg_rel}
 Summary:	Trinity Directory Layout
 Group:		System/Fhs
 URL:		http://www.trinitydesktop.org/
 
-%if 0%{?suse_version}
-License:	GPL-2.0+
-%else
 License:	GPLv2+
-%endif
 
 #Vendor:		Trinity Desktop
 #Packager:	Francois Andriot <francois.andriot@free.fr>
