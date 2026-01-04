@@ -16,8 +16,6 @@ URL:		http://www.trinitydesktop.org/
 
 License:	GPLv2+
 
-# BuildArch:	noarch
-
 
 %description
 This package installs the Trinity directory structure.
@@ -105,7 +103,7 @@ This package installs the Trinity directory structure.
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/ld.so.conf.d/
 
-echo "/opt/trinity/%{_lib}" > tde.conf
+echo "%{tde_prefix}/%{_lib}" > tde.conf
 
 %__install -p -c -m 644 tde.conf %{buildroot}%{_sysconfdir}/ld.so.conf.d/tde.conf
 %__install -d -m 755 %{?buildroot}%{tde_prefix}
@@ -600,7 +598,11 @@ done
 %__install -d -m 755 %{?buildroot}%{tde_prefix}/share/locale/zh_TW/LC_MESSAGES/
 %__install -d -m 755 %{?buildroot}%{tde_prefix}/share/locale/zu/LC_MESSAGES/
 
-%post -p /usr/bin/ldconfig
+%transfiletriggerin -P 2000000 -- %{tde_prefix}/%{_lib}
+/usr/bin/ldconfig
+%end
 
-%postun -p /usr/bin/ldconfig
+%transfiletriggerpostun -P 2000000 -- %{tde_prefix}/%{_lib} 
+/usr/bin/ldconfig
+%end
 
