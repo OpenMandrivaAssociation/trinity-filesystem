@@ -1,15 +1,9 @@
-# TDE variables
-%if "%{?tde_version}" == ""
-%define tde_version 14.1.5
-%endif
-%define pkg_rel 4
-
 %define tde_prefix /opt/trinity
 
 
 Name:		trinity-filesystem
-Version:	%{tde_version}
-Release:	%{pkg_rel}
+Version:	14.1.5
+Release:	5
 Summary:	Trinity Directory Layout
 Group:		System/Fhs
 URL:		http://www.trinitydesktop.org/
