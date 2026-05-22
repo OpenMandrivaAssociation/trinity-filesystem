@@ -2,8 +2,8 @@
 
 
 Name:		trinity-filesystem
-Version:	14.1.5
-Release:	5
+Version:	14.1.6
+Release:	1
 Summary:	Trinity Directory Layout
 Group:		System/Fhs
 URL:		http://www.trinitydesktop.org/
